@@ -1,5 +1,5 @@
 # Business Clock / Speedometer Designed Charts
-<b>Graphical Winform Clock Charts</b> 
+<b>Graphical Winforms Clock Charts</b> 
 <img src="http://i.imgur.com/EgrLU9t.png"/>
 
 The DLL is written in VB.NET. <br/>
