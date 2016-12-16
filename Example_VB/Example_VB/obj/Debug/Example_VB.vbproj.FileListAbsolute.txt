@@ -1,0 +1,14 @@
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\bin\Debug\Example_VB.exe.config
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\bin\Debug\Example_VB.exe
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\bin\Debug\Example_VB.pdb
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\bin\Debug\Example_VB.xml
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\bin\Debug\BusinessClocks.dll
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\bin\Debug\BusinessClocks.pdb
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\bin\Debug\BusinessClocks.xml
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\obj\Debug\Example_VB.vbprojResolveAssemblyReference.cache
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\obj\Debug\Example_VB.Form1.resources
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\obj\Debug\Example_VB.Resources.resources
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\obj\Debug\Example_VB.vbproj.GenerateResource.Cache
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\obj\Debug\Example_VB.exe
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\obj\Debug\Example_VB.xml
+c:\users\john\documents\visual studio 2015\Projects\Example_VB\Example_VB\obj\Debug\Example_VB.pdb
