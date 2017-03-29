@@ -1,4 +1,4 @@
-# Business Clock / Speedometer Designed Charts
+# Speedometer Designed Charts
 <b>Graphical Winforms Clock Charts</b> 
 <img src="http://i.imgur.com/EgrLU9t.png"/>
 
