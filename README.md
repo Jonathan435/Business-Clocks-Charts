@@ -1,6 +1,8 @@
 # Speedometer Designed Charts
 <b>Graphical Winforms Clock Charts</b> 
+<br/>
 <img src="http://i.imgur.com/EdsyThw.png"/>
+<br/>
 The DLL is written in VB.NET. <br/>
 you can use it also with C# projects. <br/>
 two identical examples are added, for C# and for VB.NET <br/>
