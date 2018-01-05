@@ -1,5 +1,6 @@
 # Speedometer Designed Charts
-This is a Graphical Winforms Clock Charts, each clock object has a variety of properties, used for customization clocks can include animation when refreshing or loading.
+Welcome to Graphical Winforms Clock Charts libary, the main purpose of this project is to provide graphical clock-like objects that winforms developers can use to builed applications that needs added value to present data (company dashboard for example).
+each clock object has a variety of properties, used for customization clocks can include animation when refreshing or loading.
 
 <img src="http://i.imgur.com/EdsyThw.png"/>
 <br/>
@@ -30,7 +31,7 @@ in the top of Form1 File.
 * Copy&paste the example with your prefered programming language to Form1 class.
 * Run and test the example by pressing F5.
 
-**C# Example**
+**C# Test Example**
 ```
 using System;
 using System.Collections.Generic;
@@ -81,7 +82,7 @@ namespace WindowsFormsApplication19
 }
 
 ```
-**Visual Basic.NET Example**
+**Visual Basic.NET Test Example**
 
 ```
 Imports BusinessClocks.ExecutiveClocks
