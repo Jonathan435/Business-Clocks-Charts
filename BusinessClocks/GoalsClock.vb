@@ -6,7 +6,7 @@ Namespace ExecutiveClocks
 
     Public Class GoalsClock
         Implements IClock, IDisposable
-        Public Const Version As String = "2.0" ' version
+        Public Const Version As String = "2.1" ' version
         Private Const INNER_RECT_RATIO As Single = 0.5
         Private _ClockWidth As Int16
         Public Property ClockWidth As Int16
