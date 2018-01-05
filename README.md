@@ -160,8 +160,8 @@ When ```BaseBar = True``` the ```Clock``` object wil be hosted inside ```ClockPa
 
 * ```LowPerformance```: Gets or sets the indication for low performance, this property is binded to **LowPerFormanceColor** property and its value will set the graphical area of the low performance clock with **LowPerFormanceColor** color.
 * ```MediumPerformance```: Gets or sets the indication for Medium performance, this property is binded to **MediumPerFormanceColor** property and its value will set the graphical area of the Medium performance clock with **MediumPerFormanceColor** color.
-* ```HighPerformance```: Gets or sets the indication for High performance, this property is binded to **HighPerFormanceColor** property and its value will set the graphical area of the High performance clock with **HighPerFormanceColor** color
-<br/>
+* ```HighPerformance```: Gets or sets the indication for High performance, this property is binded to **HighPerFormanceColor** property and its value will set the graphical area of the High performance clock with **HighPerFormanceColor** color.<br/>
+
 * ```HighPerFormanceColor```: Gets or sets the graphical High performance area in the clock with the color that was selected (bindied to ```HighPerFormanceColor``` property).
 * ```MediumPerFormanceColor```: Gets or sets the graphical medium performance area in the clock with the color that was selected (binded to ```MediumPerformance``` property).
 * ```LowPerFormanceColor```: Gets or sets the graphical low performance area in the clock with the color that was selected (binded to ```LowPerformance``` property).
