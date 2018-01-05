@@ -148,10 +148,10 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherits GoalsClock_
 
 **Methods:**
 
-* ```Create(ByVal AnimateClock As Boolean)```: UNDER CONSTRACTION... 
-* ```RefreshClock(ByVal AnimateClock As Boolean)```: UNDER CONSTRACTION...
-* ```Dispose()```: UNDER CONSTRACTION...
-* ``` LoadFont()```: UNDER CONSTRUCTION...
+* ```Create(ByVal AnimateClock As Boolean)```: Initilizing the clock object, must be called after all properties are setted (developers please note: this method is Overridable / Virtual).
+* ```RefreshClock(ByVal AnimateClock As Boolean)```: Refreshes and redraw the graphics of the clock object, call this method after you change properties (PercentOfGoals, InnerCircleColor for example). most of the clock properties will call this method when their value is changed. (developers please note: this method is Overridable / Virtual).
+* ``` LoadFont()```: Returns the suitable font em size and style relative to the clock size using internal elgoritem.<br/> you can always call ```LoadFont()``` in order to reset the font.<br/> If the clock is to small the text will not be shown inside the clock .
+* ```Dispose()```: The method is implements from IDisposable Interface (in mscorlib.dll assembly), when called clock object will be disposed and all [GDI Objects](https://msdn.microsoft.com/en-us/library/ms969928.aspx) will be freed from memory.
 ### CarClock Class Methods and Properties
 
 **Properties:**
