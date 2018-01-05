@@ -169,7 +169,7 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherits GoalsClock_
 * BarFont (field): 
 
 
-**Constructors:
+**Constructors:**
 * New(ByVal clockWidth As Int16, ByVal clockHeight As Int16, ByVal GoalsPercent As Single, Optional AddBaseBar As Boolean = False):
 
 
@@ -187,4 +187,15 @@ waitText: this is an immutibule field passed via the c %%%%%
 The DLL is written in VB.NET. <br/>
 you can use it also with C# projects. <br/>
 two identical examples are added, for C# and for VB.NET. <br/>
+
+## Versioning:
+We use [SemVer](http://semver.org/) for versioning.<br/>
+GoalsClock base class has a Version Constant Field: use it to check the version number of the libary.
+
+## Writing New BusinessClock Object
+
+## Authors
+* **Jonathan Applebaum** - *Initial work* - [Jonathan435](https://github.com/Jonathan435)
+
+
 
