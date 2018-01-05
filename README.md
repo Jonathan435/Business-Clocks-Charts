@@ -1,6 +1,6 @@
 # Speedometer Designed Charts
-Welcome to Graphical Winforms Clock Charts libary.<br/> The main purpose of this project is to provide graphical clock-like objects for winforms developers that are developing applications that present calculated data regarding to performance (company dashboard for example).<br/>
-each clock object has a variety of properties, used for customization, clocks can include animation when refreshing or loading.
+Welcome to Graphic Winforms Clock Charts libary.<br/> The main purpose of this project is to provide graphical clock-like objects for winforms developers that are developing applications that present calculated data regarding to performance (company dashboard for example).<br/>
+Each clock object has a variety of properties, used for customization, clocks can include animation when refreshing or loading.
 
 <img src="http://i.imgur.com/EdsyThw.png"/>
 <br/>
@@ -10,9 +10,9 @@ each clock object has a variety of properties, used for customization, clocks ca
 
 #### Getting Started
 
-Dowonload the last version of BusinessClocks.dll to your local computer.
-<br/>you can always find the last version in the master branch of the repository.<br/>
-load the .dll to your winforms project using Visual Studio.<br/>
+Download the latest version of BusinessClocks.dll to your local computer.
+<br/>You can always find the last version in the master branch of the repository.<br/>
+Load the .dll to your winforms project using Visual Studio.<br/>
 
 **Instructions to load dll into your project:**<br/>
 * Open VS Reference Manager form: right click on your project in the Solution Explorer >> Add >> Reference. 
@@ -24,9 +24,9 @@ load the .dll to your winforms project using Visual Studio.<br/>
 
 ### Basic Usage
 
-* Create a new winforms project with visual studio. 
+* Create a new winforms project with Visual Studio. 
 * Reference BusinessClocks.dll (as explained above).
-* Add an ```Using```(C#) steatment or ```Imports```(VB.NET) steatment to the namespace ```BusinessClocks.ExecutiveClocks```
+* Add a ```Using```(C#) steatment or ```Imports```(VB.NET) steatment to the namespace ```BusinessClocks.ExecutiveClocks```
 in the top of ```Form1``` File.
 * Copy & paste the example with your prefered programming language to ```Form1``` class.
 * Run and test the example by pressing F5.
@@ -120,18 +120,18 @@ Public Class Form1
 End Class
 ```
 ### Base Class (GoalsClock) Methods and Properties
-_**Note:** All clocks (WaitClock and CarClock for now) inherits GoalsClock_
+_**Note:** All clocks (WaitClock and CarClock for now) inherit GoalsClock_
 <br/><br/>
 **Properties:**
-* ```Clock:``` Instance of the graphical object that represents the clock, initilized after ```Create()``` has been called.
+* ```Clock:``` Instance of the graphical object that represents the clock, initilized after ```Create()``` had been called.
 * ```ClockWidth```: Gets or Sets the clock width.
 * ```ClockHeight```: Gets or Sets the clock height.
-* ```xPos``` and ```Ypos```: Gets the x position or y position of the rectangle that is containing the clock.
+* ```xPos``` and ```Ypos```: Gets the x or y position of the rectangle that contains the clock.
 * ```ClockBackGroundColor```: Gets or sets the clock background color.
 * ```FontColor```: Gets or sets the font color of the text  that describes the ```PercentOfGoals``` percentage.
 * ```ClockFont```: Gets or sets the font of the text that describes the PercentOfGoals percentage. **Please note:**
-1.  _It is recomended not to change ```font``` property because the getter of this property is calling ```LoadFont()``` function in order to calculate the suitable font em size and style relative to the clock size using internal elgoritem._
-2. _If the clock is to small the text will not be shown inside the clock (when not changing ```ClockFont``` from outside and letting ```LoadFont()``` to determine the suitable font)._
+1.  _It is recomended not to change ```font``` property because the getter of this property is calling ```LoadFont()``` function in order to calculate the suitable font size and style relative to the clock size using internal elgoritem._
+2. _If the clock is too small the text will not be shown inside the clock (when not changing ```ClockFont``` from outside and letting ```LoadFont()``` to determine the suitable font)._
 3. _you can always call ```LoadFont()``` in order to reset the font._ 
 
 * ```InnerCircleColor```: Gets or sets the color of the inner arc.
@@ -146,8 +146,8 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherits GoalsClock_
 
 **Methods:**
 
-* ```Create(ByVal AnimateClock As Boolean)```: Initilizing the clock object, must be called after all properties are setted (developers please note: this method is Overridable / Virtual).
-* ```RefreshClock(ByVal AnimateClock As Boolean)```: Refreshes and redraw the graphics of the clock object, call this method after you change properties (PercentOfGoals, InnerCircleColor for example). most of the clock properties will call this method when their value is changed. (developers please note: this method is Overridable / Virtual).
+* ```Create(ByVal AnimateClock As Boolean)```: Initilizing the clock object, must be called after all properties are set (developers please note: this method is Overridable / Virtual).
+* ```RefreshClock(ByVal AnimateClock As Boolean)```: Refreshes and redraws the graphics of the clock object, call this method after you change properties (PercentOfGoals, InnerCircleColor for example). Most of the clock properties will call this method when their value is changed. (developers please note: this method is Overridable / Virtual).
 * ``` LoadFont()```: Returns the suitable font em size and style relative to the clock size using internal elgoritem.<br/> you can always call ```LoadFont()``` in order to reset the font.<br/> If the clock is to small the text will not be shown inside the clock .
 * ```Dispose()```: The method is implements from IDisposable Interface (in mscorlib.dll assembly), when called clock object will be disposed and all [GDI Objects](https://msdn.microsoft.com/en-us/library/ms969928.aspx) will be freed from memory.
 ### CarClock Class Methods and Properties
@@ -194,8 +194,8 @@ When ```BaseBar = True``` the ```Clock``` object wil be hosted inside ```ClockPa
 
 ### Builet With
 The DLL is written in VB.NET. <br/>
-you can use it also with C# projects. <br/>
-two identical examples are added, for C# and for VB.NET. <br/>
+You can also use it with C# projects. <br/>
+Two identical examples are added, for C# and for VB.NET. <br/>
 
 ## Versioning:
 We use [SemVer](http://semver.org/) for versioning.<br/>
