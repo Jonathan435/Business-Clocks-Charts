@@ -144,8 +144,6 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherits GoalsClock_
 * ```AnimationLength```: Gets or set animation speed (milisec) based on AnimationLength Enumeration: SuperFast = 1, Fast = 4, ModerateFast = 8, Moderate = 15, ModerateSlow = 28, Slow = 50, SuperSlow = 80.
 * ```TimerInterval```: Gets or set the ticks interval for the internal timer that is handaling the animation. recomended value is 4 (default).
 
-**OverLoaded Constructors:**
-
 **Methods:**
 
 * ```Create(ByVal AnimateClock As Boolean)```: Initilizing the clock object, must be called after all properties are setted (developers please note: this method is Overridable / Virtual).
