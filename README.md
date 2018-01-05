@@ -49,9 +49,9 @@ namespace WindowsFormsApplication19
     public partial class Form1 : Form
     {
 
-        private BusinessClocks.ExecutiveClocks.CarClock CarClock;
-        private GoalsClock GoalsClock;
-        private WaitClock WaitClock = new WaitClock(150, 150, "Loading...");
+        private BusinessClocks.ExecutiveClocks.CarClock carClock;
+        private GoalsClock goalsClock;
+        private WaitClock waitClock;
 
         public Form1()
         {
@@ -60,23 +60,23 @@ namespace WindowsFormsApplication19
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            CarClock = new BusinessClocks.ExecutiveClocks.CarClock(300, 150, 0.8F, true);
-            CarClock.ShowInnerCutForPerformance = false;
-            CarClock.BarBackColor = Color.Pink;
-            CarClock.Create(true);
-            this.Controls.Add(CarClock.ClockPanel);
-            GoalsClock = new GoalsClock(200, 200, 0.8F);
-            GoalsClock.Create(true);
-            GoalsClock.Clock.Location = new Point(0, CarClock.ClockPanel.Location.Y + CarClock.ClockPanel.Height + 5);
-            this.Controls.Add(GoalsClock.Clock);
-            WaitClock = new WaitClock(150, 150, "Loading...");
-            WaitClock.Clock.Location = new Point(0, GoalsClock.Clock.Location.Y + GoalsClock.Clock.Height + 5);
-            WaitClock.LoadFont("ARIAL", 8, FontStyle.Regular);
-            WaitClock.setArrayColors(new Color[] { Color.FromArgb(0, 100, 100), Color.FromArgb(0, 136, 136), Color.FromArgb(0, 170, 170), Color.FromArgb(0, 204, 204) });
-            WaitClock.OuterCircleWeight = 8;
-            WaitClock.InnerCircleWeight = 5;
-            WaitClock.Create(true);
-            this.Controls.Add(WaitClock.Clock);
+            carClock = new BusinessClocks.ExecutiveClocks.CarClock(300, 150, 0.8F, true);
+            carClock.ShowInnerCutForPerformance = false;
+            carClock.BarBackColor = Color.Pink;
+            carClock.Create(true);
+            this.Controls.Add(carClock.ClockPanel);
+            goalsClock = new GoalsClock(200, 200, 0.8F);
+            goalsClock.Create(true);
+            goalsClock.Clock.Location = new Point(0, carClock.ClockPanel.Location.Y + carClock.ClockPanel.Height + 5);
+            this.Controls.Add(goalsClock.Clock);
+            waitClock = new WaitClock(150, 150, "Loading...");
+            waitClock.Clock.Location = new Point(0, goalsClock.Clock.Location.Y + goalsClock.Clock.Height + 5);
+            waitClock.LoadFont("ARIAL", 8, FontStyle.Regular);
+            waitClock.setArrayColors(new Color[] { Color.FromArgb(0, 100, 100), Color.FromArgb(0, 136, 136), Color.FromArgb(0, 170, 170), Color.FromArgb(0, 204, 204) });
+            waitClock.OuterCircleWeight = 8;
+            waitClock.InnerCircleWeight = 5;
+            waitClock.Create(true);
+            this.Controls.Add(waitClock.Clock);
         }
     }
 }
