@@ -154,9 +154,9 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherits GoalsClock_
 
 **Properties:**
 * ```ClockPanel```(field): use to contain inside the ```Clock``` object if text bar is required. **Important:** 
-When ```BaseBar = True``` the ```Clock``` object wil be hosted inside ```ClockPanel``` in order to present a bar of performance text underneath the clock.<br/>
+When ```BaseBar = True``` the ```Clock``` object wil be hosted inside ```ClockPanel``` in order to present a bar of performance text underneath the clock.<br/> **Consider that:**
 1. ```_If BaseBar = True``` use this control (and not Clock property) to get the clock with the text bar._
-2. ```_If BaseBar = False``` never use this property, the result will be ```NullReferenceException``` because it will not be initilized (Please read  issue6 that was oppened by lordofscripts: https://github.com/Jonathan435/Business-Clocks-Charts/issues/6)._
+2. ```_If BaseBar = False``` never use this property, the result will be ```NullReferenceException``` because it will not be initilized (Please read  issue6 that was oppened by the user [lordofscripts](https://github.com/lordofscripts): https://github.com/Jonathan435/Business-Clocks-Charts/issues/6)._
 
 * ```LowPerformance```: UNDER CONSTRACTION...
 * ```MediumPerformance```: UNDER CONSTRACTION...
