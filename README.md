@@ -25,7 +25,7 @@ load the .dll to your winforms project using Visual Studio.<br/>
 
 * Create a new winforms project with visual studio. 
 * Reference BusinessClocks.dll (as explained above).
-* Add an Using(C#) steatment or Imports(VB.NET) steatment to the namespace BusinessClocks.ExecutiveClocks
+* Add an Using(C#) steatment or Imports(VB.NET) steatment to the namespace ```BusinessClocks.ExecutiveClocks```
 in the top of Form1 File.
 * Copy&paste the example with your prefered programming language to Form1 class.
 * Run and test the example by pressing F5.
@@ -122,8 +122,8 @@ End Class
 _**Note:** All clocks (WaitClock and CarClock for now) inherits GoalsClock_
 <br/><br/>
 **Properties:**
-* ClockWidth:
-* ClockHeight:
+* ```ClockWidth```:
+* ```ClockHeight```:
 * xPos and Ypos:
 * Clock:
 * ClockBackGroundColor: 
@@ -190,7 +190,7 @@ two identical examples are added, for C# and for VB.NET. <br/>
 
 ## Versioning:
 We use [SemVer](http://semver.org/) for versioning.<br/>
-GoalsClock base class has a Version Constant Field: use it to check the version number of the libary.
+GoalsClock base class has a ```Version``` constant field: use it to check the version number of the libary.
 
 ## Writing New BusinessClock Object
 
