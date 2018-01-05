@@ -129,8 +129,7 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherits GoalsClock_
 * ```xPos``` and ```Ypos```: Gets the x position or y position of the rectangle that is containing the clock.
 * ```ClockBackGroundColor```: Gets or sets the clock background color.
 * ```FontColor```: Gets or sets the font color of the text  that describes the ```PercentOfGoals``` percentage.
-* ```ClockFont```: Gets or sets the font of the text that describes the PercentOfGoals percentage.
-<br/>**Please note:**<br/>
+* ```ClockFont```: Gets or sets the font of the text that describes the PercentOfGoals percentage. **Please note:**
 1.  _It is recomended not to change ```font``` property because the getter of this property is calling ```LoadFont()``` function in order to calculate the suitable font em size and style relative to the clock size using internal elgoritem._
 2. _If the clock is to small the text will not be shown inside the clock (when not changing ```ClockFont``` from outside and letting ```LoadFont()``` to determine the suitable font)._
 3. _you can always call ```LoadFont()``` in order to reset the font._ 
