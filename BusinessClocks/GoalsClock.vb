@@ -9,6 +9,10 @@ Namespace ExecutiveClocks
         Public Const Version As String = "2.1" ' version
         Private Const INNER_RECT_RATIO As Single = 0.5
         Private _ClockWidth As Int16
+        ''' <summary>
+        ''' Gets or sets the clock width
+        ''' </summary>
+        ''' <returns></returns>
         Public Property ClockWidth As Int16
             Get
                 Return _ClockWidth
@@ -18,6 +22,10 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Private _ClockHeight As Int16
+        ''' <summary>
+        ''' Gets or sets the clock height
+        ''' </summary>
+        ''' <returns></returns>
         Public Property ClockHeight As Int16
             Get
                 Return _ClockHeight
@@ -27,6 +35,10 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Private _xPos As Int16
+        ''' <summary>
+        ''' Gets the x position of the rectangle that containing the clock
+        ''' </summary>
+        ''' <returns></returns>
         Public ReadOnly Property xPos As Int16
             Get
                 If OuterCircleWeight = 0 Or OuterCircleWeight = Nothing Then Throw New Exception("OuterSquareWidth Must Have Value")
@@ -34,6 +46,10 @@ Namespace ExecutiveClocks
             End Get
         End Property
         Private _yPos As Int16
+        ''' <summary>
+        ''' Gets the y position of the rectangle that containing the clock
+        ''' </summary>
+        ''' <returns></returns>
         Public ReadOnly Property yPos As Int16
             Get
                 If OuterCircleWeight = 0 Or OuterCircleWeight = Nothing Then Throw New Exception("OuterSquareWidth Must Have Value")
@@ -55,6 +71,10 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Private _panelColor As Color
+        ''' <summary>
+        ''' Gets or sets the clock background color
+        ''' </summary>
+        ''' <returns></returns>
         Public Property ClockBackGroundColor As Color
             Get
                 Return _panelColor
@@ -72,6 +92,10 @@ Namespace ExecutiveClocks
         Protected InnerRect As Rectangle
         Protected InnerStringBrush As Brush
         Protected _InnerStringColor As Color
+        ''' <summary>
+        ''' Gets or sets the font color of the text thats describes the PercentOfGoals percentage
+        ''' </summary>
+        ''' <returns></returns>
         Public Property FontColor As Color
             Get
                 Return _InnerStringColor
@@ -99,6 +123,10 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Private _ClockFont As Font
+        ''' <summary>
+        ''' Gets or sets the font of the text that describes the PercentOfGoals percentage
+        ''' </summary>
+        ''' <returns></returns>
         Public Property ClockFont As Font
             Get
                 If _ClockFont Is Nothing Then
@@ -118,6 +146,10 @@ Namespace ExecutiveClocks
         ' inner Circle
         Protected InnerCirclePen As Pen
         Protected _InnerCirclePen_Color As Color
+        ''' <summary>
+        ''' Gets or sets the color of the inner arc
+        ''' </summary>
+        ''' <returns></returns>
         Public Property InnerCircleColor As Color
             Get
                 Return _InnerCirclePen_Color
@@ -130,6 +162,10 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Private _InnerCircleWeight As Byte
+        ''' <summary>
+        ''' Gets or sets the pixel weight (wideness) of the inner arc
+        ''' </summary>
+        ''' <returns></returns>
         Public Property InnerCircleWeight As Byte
             Get
                 Return _InnerCircleWeight
@@ -144,6 +180,10 @@ Namespace ExecutiveClocks
         ' outer square
         Protected OuterCirclePen As Pen
         Protected _OuterCirclePen_Color As Color
+        ''' <summary>
+        ''' Gets or sets the color of the outer arc
+        ''' </summary>
+        ''' <returns></returns>
         Public Property OuterCircleColor As Color
             Get
                 Return _OuterCirclePen_Color
@@ -156,6 +196,10 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Protected _OuterCirclePen_Weight As Byte
+        ''' <summary>
+        ''' Gets or sets the pixel weight (wideness) of the outer arc
+        ''' </summary>
+        ''' <returns></returns>
         Public Property OuterCircleWeight As Byte
             Get
                 Return _OuterCirclePen_Weight
@@ -168,7 +212,11 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Private _PercentOfGoals As Single ' to calculate the goals deg arc
-        Public Property PercentOfGoals() As Single
+        ''' <summary>
+        ''' Gets or sets the the clock value. for example value of 0.1F = 10%, value of 0.5F = 50%,value of 1.1F = 110% etc...
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property PercentOfGoals As Single
             Get
                 Return _PercentOfGoals ' * 100
             End Get
@@ -176,13 +224,24 @@ Namespace ExecutiveClocks
                 _PercentOfGoals = value
             End Set
         End Property
+        ''' <summary>
+        ''' Gets the the clock deciaml value
+        ''' </summary>
+        ''' <returns></returns>
         Public ReadOnly Property GoalsPercentDecimalValue As Single
             Get
                 Return _PercentOfGoals
             End Get
         End Property
+        ''' <summary>
+        ''' Gets or set a value indicating whether animation will be activated or not
+        ''' </summary>
         Public Animate As Boolean
         Protected _AnimationLength As IClock.AnimationLength = IClock.AnimationLength.SuperFast ' default
+        ''' <summary>
+        ''' Gets or set animation speed (milisec) based on AnimationLength Enumeration: SuperFast = 1, Fast = 4, ModerateFast = 8, Moderate = 15, ModerateSlow = 28, Slow = 50, SuperSlow = 80
+        ''' </summary>
+        ''' <returns></returns>
         Public Property AnimationLength As IClock.AnimationLength
             Get
                 Return _AnimationLength
@@ -194,7 +253,7 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Protected _TimerAnimation As Timer
-        Public Overridable Property TimerAnimatiom As Timer
+        Protected Overridable Property TimerAnimatiom As Timer
             Get
                 If IsNothing(_TimerAnimation) Then
                     _TimerAnimation = New Timer
@@ -208,6 +267,10 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Protected _TimerInterval As Integer = 28
+        ''' <summary>
+        ''' Gets or set the ticks interval for the internal timer that is handaling the animation. recomended value is 4 (default).
+        ''' </summary>
+        ''' <returns></returns>
         Public Property TimerInterval As Integer
             Get
                 Return _TimerInterval
@@ -544,7 +607,7 @@ Namespace ExecutiveClocks
             AddHandler Clock.Paint, AddressOf clockPanel_Paint
         End Sub
 
-        Public Sub setArrayColors(ByVal arrayOfColors() As Color)
+        Public Sub SetArrayColors(ByVal arrayOfColors() As Color)
             If arrayOfColors.Count > 0 Then
                 Waitcolors = Nothing
                 Waitcolors = arrayOfColors
