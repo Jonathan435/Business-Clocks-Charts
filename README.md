@@ -1,6 +1,6 @@
 # Speedometer Designed Charts
-Welcome to Graphical Winforms Clock Charts libary, the main purpose of this project is to provide graphical clock-like objects for winforms developers that are developing applications that present calculated performance data (company dashboard for example).
-each clock object has a variety of properties, used for customization clocks can include animation when refreshing or loading.
+Welcome to Graphical Winforms Clock Charts libary.<br/> The main purpose of this project is to provide graphical clock-like objects for winforms developers that are developing applications that present calculated data regarding to performance (company dashboard for example).<br/>
+each clock object has a variety of properties, used for customization, clocks can include animation when refreshing or loading.
 
 <img src="http://i.imgur.com/EdsyThw.png"/>
 <br/>
@@ -11,11 +11,11 @@ each clock object has a variety of properties, used for customization clocks can
 #### Getting Started
 
 Dowonload the last version of BusinessClocks.dll to your local computer.
-<br/>you can always find the last version in master branch of the repository.<br/>
+<br/>you can always find the last version in the master branch of the repository.<br/>
 load the .dll to your winforms project using Visual Studio.<br/>
 
 **Instructions to load dll into your project:**<br/>
-* Open Reference form: right click on your project in the Solution Explorer >> Add >> Reference. 
+* Open VS Reference form: right click on your project in the Solution Explorer >> Add >> Reference. 
 * Click the "Browse" button and navigate to the dll path and press OK.
 * When you do this, by default the DLL is copied and included in the project's output.
 <br/>
@@ -26,9 +26,9 @@ load the .dll to your winforms project using Visual Studio.<br/>
 
 * Create a new winforms project with visual studio. 
 * Reference BusinessClocks.dll (as explained above).
-* Add an Using(C#) steatment or Imports(VB.NET) steatment to the namespace ```BusinessClocks.ExecutiveClocks```
-in the top of Form1 File.
-* Copy&paste the example with your prefered programming language to Form1 class.
+* Add an ```Using```(C#) steatment or ```Imports```(VB.NET) steatment to the namespace ```BusinessClocks.ExecutiveClocks```
+in the top of ```Form1``` File.
+* Copy & paste the example with your prefered programming language to ```Form1``` class.
 * Run and test the example by pressing F5.
 
 **C# Test Example**
