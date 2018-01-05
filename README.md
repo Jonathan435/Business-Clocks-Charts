@@ -1,6 +1,5 @@
 # Speedometer Designed Charts
- Graphical Winforms Clock Charts each clock object has a variety of properties, used for customization clocks can include animation when refreshing or loading.
-
+This is a Graphical Winforms Clock Charts, each clock object has a variety of properties, used for customization clocks can include animation when refreshing or loading.
 
 <br/>
 <img src="http://i.imgur.com/EdsyThw.png"/>
@@ -8,7 +7,9 @@
 
 <img src="http://i.imgur.com/EgrLU9t.png"/>
 <br/>
-## Getting Started
+
+#### Getting Started
+
 Dowonload the last version of BusinessClocks.dll to your local computer.
 <br/>you can always find the last version in master branch of the repository.<br/>
 load the .dll to your winforms project using Visual Studio.<br/>
