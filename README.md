@@ -133,6 +133,7 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherits GoalsClock_
 1.  _It is recomended not to change ```font``` property because the getter of this property is calling ```LoadFont()``` function in order to calculate the suitable font em size and style relative to the clock size using internal elgoritem._
 2. _If the clock is to small the text will not be shown inside the clock (when not changing ```ClockFont``` from outside and letting ```LoadFont()``` to determine the suitable font)._
 3. _you can always call ```LoadFont()``` in order to reset the font._ 
+
 * ```InnerCircleColor```: Gets or sets the color of the inner arc.
 * ```InnerCircleWeight```: Gets or sets the pixel weight (wideness) of the inner arc.
 * ```OuterCircleColor```: Gets or sets the color of the outer arc.
