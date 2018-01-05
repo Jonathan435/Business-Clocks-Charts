@@ -89,32 +89,32 @@ Imports BusinessClocks.ExecutiveClocks
 
 Public Class Form1
 
-    Private CarClock As BusinessClocks.ExecutiveClocks.CarClock
-    Private GoalsClock As GoalsClock
-    Private WaitClock As New WaitClock(150, 150, "Loading...")
+    Private carClock As BusinessClocks.ExecutiveClocks.CarClock
+    Private goalsClock As GoalsClock
+    Private waitClock As New WaitClock(150, 150, "Loading...")
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' car clock (with precentage bar)
-        CarClock = New BusinessClocks.ExecutiveClocks.CarClock(300, 150, 0.8, True)
-        CarClock.ShowInnerCutForPerformance = False
-        CarClock.BarBackColor = Color.Pink
-        CarClock.Create(True)
-        Me.Controls.Add(CarClock.ClockPanel)
+        carClock = New BusinessClocks.ExecutiveClocks.CarClock(300, 150, 0.8, True)
+        carClock.ShowInnerCutForPerformance = False
+        carClock.BarBackColor = Color.Pink
+        carClock.Create(True)
+        Me.Controls.Add(carClock.ClockPanel)
         ' goals clock
-        GoalsClock = New GoalsClock(200, 200, 0.8)
-        GoalsClock.Create(True)
-        GoalsClock.Clock.Location = New Point(0, CarClock.ClockPanel.Location.Y + CarClock.ClockPanel.Height + 5)
-        Me.Controls.Add(GoalsClock.Clock)
+        goalsClock = New GoalsClock(200, 200, 0.8)
+        goalsClock.Create(True)
+        goalsClock.Clock.Location = New Point(0, carClock.ClockPanel.Location.Y + carClock.ClockPanel.Height + 5)
+        Me.Controls.Add(goalsClock.Clock)
         ' waitclock
-        WaitClock = New WaitClock(150, 150, "Loading...")
-        WaitClock.Clock.Location = New Point(0, GoalsClock.Clock.Location.Y + GoalsClock.Clock.Height + 5)
-        WaitClock.LoadFont("ARIAL", 8, FontStyle.Regular)
-        WaitClock.setArrayColors(New Color() {Color.FromArgb(0, 100, 100), Color.FromArgb(0, 136, 136) _
+        waitClock = New WaitClock(150, 150, "Loading...")
+        waitClock.Clock.Location = New Point(0, goalsClock.Clock.Location.Y + goalsClock.Clock.Height + 5)
+        waitClock.LoadFont("ARIAL", 8, FontStyle.Regular)
+        waitClock.SetArrayColors(New Color() {Color.FromArgb(0, 100, 100), Color.FromArgb(0, 136, 136) _
                                      , Color.FromArgb(0, 170, 170), Color.FromArgb(0, 204, 204)})
-        WaitClock.OuterCircleWeight = 8
-        WaitClock.InnerCircleWeight = 5
-        WaitClock.Create(True)
-        Me.Controls.Add(WaitClock.Clock)
+        waitClock.OuterCircleWeight = 8
+        waitClock.InnerCircleWeight = 5
+        waitClock.Create(True)
+        Me.Controls.Add(waitClock.Clock)
     End Sub
 
 End Class
@@ -169,7 +169,7 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherits GoalsClock_
 * ```InnerCutPreformanceColor```: UNDER CONSTRACTION...
 * ```InnerCutPerformanceWeight```: UNDER CONSTRACTION...
 * ```BarFont``` (field): UNDER CONSTRACTION... 
-
+* ```BarBackColor```(field): UNDER CONSTRACTION... 
 
 **Constructors:**
 * ```New(ByVal clockWidth As Int16, ByVal clockHeight As Int16, ByVal GoalsPercent As Single, Optional AddBaseBar As Boolean = False)```: UNDER CONSTRACTION...
