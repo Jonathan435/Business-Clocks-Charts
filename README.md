@@ -15,7 +15,7 @@ Dowonload the last version of BusinessClocks.dll to your local computer.
 load the .dll to your winforms project using Visual Studio.<br/>
 
 **Instructions to load dll into your project:**<br/>
-* Open VS Reference form: right click on your project in the Solution Explorer >> Add >> Reference. 
+* Open VS Reference Manager form: right click on your project in the Solution Explorer >> Add >> Reference. 
 * Click the "Browse" button and navigate to the dll path and press OK.
 * When you do this, by default the DLL is copied and included in the project's output.
 <br/>
