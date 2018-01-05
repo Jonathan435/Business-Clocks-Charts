@@ -91,7 +91,7 @@ Public Class Form1
 
     Private carClock As BusinessClocks.ExecutiveClocks.CarClock
     Private goalsClock As GoalsClock
-    Private waitClock As New WaitClock(150, 150, "Loading...")
+    Private waitClock As WaitClock
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' car clock (with precentage bar)
