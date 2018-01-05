@@ -1,7 +1,6 @@
 # Speedometer Designed Charts
 This is a Graphical Winforms Clock Charts, each clock object has a variety of properties, used for customization clocks can include animation when refreshing or loading.
 
-<br/>
 <img src="http://i.imgur.com/EdsyThw.png"/>
 <br/>
 
@@ -177,7 +176,7 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherits GoalsClock_
 ### WaitClock Class Methods and Properties
 **Properties:**
 waitText: this is an immutibule field passed via the c %%%%%
-**Constructors:
+**Constructors:**
 * New(ByVal clockWidth As Int16, ByVal clockHeight As Int16, ByVal waitText As String):
 **Methods:**
 * SetArrayColors(ByVal arrayOfColors() As Color)
@@ -187,5 +186,5 @@ waitText: this is an immutibule field passed via the c %%%%%
 ### Builet With
 The DLL is written in VB.NET. <br/>
 you can use it also with C# projects. <br/>
-two identical examples are added, for C# and for VB.NET <br/>
+two identical examples are added, for C# and for VB.NET. <br/>
 
