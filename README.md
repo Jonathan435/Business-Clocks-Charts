@@ -279,12 +279,14 @@ namespace WindowsFormsApplication19
 
             // the "long task" inside the method finished to execute - dispose the wait clock from the GUI
             panel1.Invoke(new Action(waitClock.Dispose));
+            // promt to screen
+            label1.Invoke(new Action(NotifyTaskHasFinished));
         }
 
         private void LoadWaitClock()
         {
             // use action delegate to update GUI changes from another thread
-            panel1.Invoke(new Action(AddClock));         
+            panel1.Invoke(new Action(AddClock));        
         }
 
         private void AddClock()
@@ -301,6 +303,12 @@ namespace WindowsFormsApplication19
             waitClock.Create(true);
             this.panel1.Controls.Add(waitClock.Clock);
         }
+
+        private void NotifyTaskHasFinished()
+        {
+            label1.Text = "LongTask() method has finished";
+        }
     }
 }
+
 ```
