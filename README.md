@@ -192,6 +192,9 @@ When ```BaseBar = True``` the ```Clock``` object wil be hosted inside ```ClockPa
 
 
 ### WaitClock Class Methods and Properties
+<img src="https://i.imgur.com/4Mdudcj.jpg"/>
+<br/>
+
 **Properties:**
 ```waitTex```t: UNDER CONSTRACTION...
 **Constructors:**
