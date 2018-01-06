@@ -193,7 +193,7 @@ When ```BaseBar = True``` the ```Clock``` object wil be hosted inside ```ClockPa
 
 **Properties:** <br/>
 
-*```waitText```: Gets or sets the text at the middle of the clock. <br/>
+* ```waitText```: Gets or sets the text at the middle of the clock. <br/>
 
 **Methods:**<br/>
 
