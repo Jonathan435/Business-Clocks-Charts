@@ -152,7 +152,6 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherit GoalsClock_
 * ```Dispose()```: The method is implements from IDisposable Interface (in mscorlib.dll assembly), when called clock object will be disposed and all [GDI Objects](https://msdn.microsoft.com/en-us/library/ms969928.aspx) will be freed from memory.
 ### CarClock Class Methods and Properties 
 <img src="https://i.imgur.com/m7Uu6JX.jpg"/>
-description
 <br/>
 
 **Properties:**
