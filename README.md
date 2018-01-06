@@ -213,12 +213,13 @@ GoalsClock base class has a ```Version``` constant field: use it to check the ve
 UNDER CONSTRACTION...
 ## Authors
 * **Jonathan Applebaum** - *Initial work* - [Jonathan435](https://github.com/Jonathan435)
-
+<br/>
+_______________________________________________________________________________________________________
 
 ### Advanced Exmples
 UNDER CONSTRUCTION...<br/>
 
 
-**Showing the user a ```WaitClock``` object while application is executing long task in the background using threads <br/>
+**Showing the user a ```WaitClock``` object while application is executing long task in the background using threads** <br/>
 
 UNDER CONSTRUCTION...
