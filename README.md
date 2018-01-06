@@ -211,7 +211,8 @@ We use [SemVer](http://semver.org/) for versioning.<br/>
 GoalsClock base class has a ```Version``` constant field: use it to check the version number of the libary.
 
 ## Writing New BusinessClock Object
-UNDER CONSTRACTION...
+This section is still under construction, in a short period of time <br/>
+You'll find here explanations and examples for developers who want to take part in the project and write their own clock charts.
 ## Authors
 * **Jonathan Applebaum** - *Initial work* - [Jonathan435](https://github.com/Jonathan435)
 <br/>
