@@ -364,3 +364,13 @@ Public Class Form1
 
 End Class
 ```
+
+## More Graphical Examples of use<br/>
+
+
+### Company Sales Dashboard<br/>
+
+<img src="https://i.imgur.com/yB0mXFW.jpg"/>
+
+### Company Operation Dashboard<br/>
+<img src="https://i.imgur.com/4GwTajd.jpg"/>
