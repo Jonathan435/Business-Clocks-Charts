@@ -6,7 +6,9 @@ Namespace ExecutiveClocks
 
     Public Class GoalsClock
         Implements IClock, IDisposable
-        Public Const Version As String = "2.1" ' version
+        Private Const VersionString As String = "5.0.0.0"
+        Public Shared Property Version As New Version(VersionString)
+
         Private Const INNER_RECT_RATIO As Single = 0.5
         Private _ClockWidth As Int16
         ''' <summary>
@@ -234,12 +236,12 @@ Namespace ExecutiveClocks
             End Get
         End Property
         ''' <summary>
-        ''' Gets or set a value indicating whether animation will be activated or not
+        ''' Gets or sets a value indicating whether animation will be activated or not
         ''' </summary>
         Public Animate As Boolean
         Protected _AnimationLength As IClock.AnimationLength = IClock.AnimationLength.SuperFast ' default
         ''' <summary>
-        ''' Gets or set animation speed (milisec) based on AnimationLength Enumeration: SuperFast = 1, Fast = 4, ModerateFast = 8, Moderate = 15, ModerateSlow = 28, Slow = 50, SuperSlow = 80
+        ''' Gets or sets animation speed (milisec) based on AnimationLength Enumeration: SuperFast = 1, Fast = 4, ModerateFast = 8, Moderate = 15, ModerateSlow = 28, Slow = 50, SuperSlow = 80
         ''' </summary>
         ''' <returns></returns>
         Public Property AnimationLength As IClock.AnimationLength
@@ -268,7 +270,7 @@ Namespace ExecutiveClocks
         End Property
         Protected _TimerInterval As Integer = 28
         ''' <summary>
-        ''' Gets or set the ticks interval for the internal timer that is handaling the animation. recomended value is 4 (default).
+        ''' Gets or sets the ticks interval for the internal timer that is handaling the animation. recomended value is 4 (default).
         ''' </summary>
         ''' <returns></returns>
         Public Property TimerInterval As Integer
@@ -360,7 +362,7 @@ Namespace ExecutiveClocks
 
         ''' <summary>
         ''' 
-        '''  create graphics of the goals clock on clockPanel
+        '''  Initilizing the clock object, must be called after all properties are setted
         ''' </summary>
         ''' <remarks></remarks>
         Public Overridable Sub Create(ByVal AnimateClock As Boolean)
@@ -469,6 +471,10 @@ Namespace ExecutiveClocks
             Return result
         End Function
 
+        ''' <summary>
+        ''' Refreshes and redraw the graphics of the clock object, call this method after you change properties (PercentOfGoals, InnerCircleColor for example)
+        ''' </summary>
+        ''' <param name="AnimateClock">indicates if animation is requeried</param>
         Public Overridable Sub RefreshClock(ByVal AnimateClock As Boolean)
             counter = 0
             If Clock IsNot Nothing Then
@@ -584,12 +590,27 @@ Namespace ExecutiveClocks
     Public Class WaitClock
         Inherits GoalsClock
 
-        Private waitText As String
+        Private _WaitText As String
+        ''' <summary>
+        ''' Gets or sets the text at the middle of the clock
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property WaitText As String
+            Get
+                Return _WaitText
+            End Get
+            Set(value As String)
+                _WaitText = value
+                If Clock IsNot Nothing Then
+                    RefreshClock(Animate)
+                End If
+            End Set
+        End Property
         Private Waitcolors() As Color = {GUI.Red, GUI.Green, GUI.Blue}
 
         Sub New(ByVal clockWidth As Int16, ByVal clockHeight As Int16, ByVal waitText As String)
             MyBase.New(clockWidth, clockHeight, 0)
-            Me.waitText = waitText
+            Me.WaitText = waitText
             ' recomended time for animation 
             TimerInterval = 28
         End Sub
@@ -607,10 +628,17 @@ Namespace ExecutiveClocks
             AddHandler Clock.Paint, AddressOf clockPanel_Paint
         End Sub
 
+        ''' <summary>
+        ''' Sets a series of colors that will change after each 360 deg rotation
+        ''' </summary>
+        ''' <param name="arrayOfColors">array of Color</param>
         Public Sub SetArrayColors(ByVal arrayOfColors() As Color)
             If arrayOfColors.Count > 0 Then
                 Waitcolors = Nothing
                 Waitcolors = arrayOfColors
+                If Clock IsNot Nothing Then
+                    RefreshClock(Animate)
+                End If
             End If
         End Sub
 
@@ -644,7 +672,7 @@ Namespace ExecutiveClocks
                 Dim stringFormat As New StringFormat()
                 stringFormat.Alignment = StringAlignment.Center
                 stringFormat.LineAlignment = StringAlignment.Center
-                Gclock.DrawString(waitText, ClockFont, InnerStringBrush, InnerRect, stringFormat)
+                Gclock.DrawString(WaitText, ClockFont, InnerStringBrush, InnerRect, stringFormat)
             End If
 
             If Animate = True Then
@@ -724,6 +752,10 @@ Namespace ExecutiveClocks
 
 
         Protected _LowPerformance As Single = 0.4
+        ''' <summary>
+        ''' Gets or sets the indication for low performance, this property is binded to LowPerFormanceColor property and its value will set the graphical area of the low performance clock with LowPerFormanceColor color
+        ''' </summary>
+        ''' <returns></returns>
         Public Property LowPerformance As Single
             Get
                 Return _LowPerformance
@@ -736,6 +768,10 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Protected _MediumPerformance As Single = 0.7
+        ''' <summary>
+        ''' Gets or sets the indication for Medium performance, this property is binded to MediumPerFormanceColor property and its value will set the graphical area of the Medium performance clock with MediumPerFormanceColor color
+        ''' </summary>
+        ''' <returns></returns>
         Public Property MediumPerformance As Single
             Get
                 Return _MediumPerformance
@@ -748,6 +784,10 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Protected _HighPerformance As Single = 1.0
+        ''' <summary>
+        ''' Gets or sets the indication for High performance, this property is binded to HighPerFormanceColor property and its value will set the graphical area of the High performance clock with HighPerFormanceColor color
+        ''' </summary>
+        ''' <returns></returns>
         Public Property HighPerformance As Single
             Get
                 Return _HighPerformance
@@ -762,6 +802,10 @@ Namespace ExecutiveClocks
 
 
         Protected _HighPerFormanceColor As Color = Color.FromArgb(129, 253, 129)
+        ''' <summary>
+        ''' Gets or sets the graphical High performance area in the clock with the color that was selected
+        ''' </summary>
+        ''' <returns></returns>
         Public Property HighPerFormanceColor As Color
             Get
                 Return _HighPerFormanceColor
@@ -774,6 +818,10 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Protected _MediumPerFormanceColor As Color = Color.FromArgb(253, 253, 150)
+        ''' <summary>
+        ''' Gets or sets the graphical medium performance area in the clock with the color that was selected
+        ''' </summary>
+        ''' <returns></returns>
         Public Property MediumPerFormanceColor As Color
             Get
                 Return _MediumPerFormanceColor
@@ -786,6 +834,11 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Protected _LowPerFormanceColor As Color = Color.FromArgb(255, 105, 97)
+
+        ''' <summary>
+        ''' Gets or sets the graphical low performance area in the clock with the color that was selected
+        ''' </summary>
+        ''' <returns></returns>
         Public Property LowPerFormanceColor As Color
             Get
                 Return _LowPerFormanceColor
@@ -797,44 +850,30 @@ Namespace ExecutiveClocks
                 End If
             End Set
         End Property
-        Public NeedlePanel As PictureBox
-        Protected _NeedleOuterColor As Color = Color.FromArgb(50, 50, 50)
-        Public Property NeedleOuterColor As Color
+
+        Protected NeedlePanel As PictureBox
+
+        Protected _NeedleBaseColor As Color = Color.FromArgb(40, 40, 40)
+        ''' <summary>
+        ''' Gets or sets the background color of the needle (clock hand) base
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property NeedleBaseColor As Color
             Get
-                Return _NeedleOuterColor
+                Return _NeedleBaseColor
             End Get
             Set(value As Color)
-                _NeedleOuterColor = value
-                If Clock IsNot Nothing Then
-                    RefreshClock(Animate)
-                End If
-            End Set
-        End Property
-        Protected _NeedleWeight As Byte = OuterCircleWeight / 2
-        Public Property NeedleWeight As Byte
-            Get
-                Return _NeedleWeight
-            End Get
-            Set(value As Byte)
-                _NeedleWeight = value
-                If Clock IsNot Nothing Then
-                    RefreshClock(Animate)
-                End If
-            End Set
-        End Property
-        Protected _NeedleBaseOuterColor As Color = Color.FromArgb(40, 40, 40)
-        Public Property NeedleBaseOuterColor As Color
-            Get
-                Return _NeedleBaseOuterColor
-            End Get
-            Set(value As Color)
-                _NeedleBaseOuterColor = value
+                _NeedleBaseColor = value
                 If Clock IsNot Nothing Then
                     RefreshClock(Animate)
                 End If
             End Set
         End Property
         Protected _NeedleBaseWeight As Byte = OuterCircleWeight / 2
+        ''' <summary>
+        ''' Gets or sets the pixel weight (thickness) of the needle (clock hand) base
+        ''' </summary>
+        ''' <returns></returns>
         Public Property NeedleBaseWeight As Byte
             Get
                 Return _NeedleBaseWeight
@@ -846,7 +885,45 @@ Namespace ExecutiveClocks
                 End If
             End Set
         End Property
+
+        Protected _NeedleOuterColor As Color = Color.FromArgb(50, 50, 50)
+        ''' <summary>
+        ''' Gets or sets the background color of the outer needle (clock hand) area
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property NeedleOuterColor As Color
+            Get
+                Return _NeedleOuterColor
+            End Get
+            Set(value As Color)
+                _NeedleOuterColor = value
+                If Clock IsNot Nothing Then
+                    RefreshClock(Animate)
+                End If
+            End Set
+        End Property
+        Protected _NeedleOuterWeight As Byte = OuterCircleWeight / 2
+        ''' <summary>
+        '''  Gets or sets the pixel weight (thickness) of the outer needle (clock hand) area
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property NeedleOuterWeight As Byte
+            Get
+                Return _NeedleOuterWeight
+            End Get
+            Set(value As Byte)
+                _NeedleOuterWeight = value
+                If Clock IsNot Nothing Then
+                    RefreshClock(Animate)
+                End If
+            End Set
+        End Property
+
         Protected _NeedleInnerColor As Color = Color.FromArgb(129, 253, 129)
+        ''' <summary>
+        '''  Gets or sets the background color of the inner needle (clock hand) area
+        ''' </summary>
+        ''' <returns></returns>
         Public Property NeedleInnerColor As Color
             Get
                 Return _NeedleInnerColor
@@ -858,7 +935,11 @@ Namespace ExecutiveClocks
                 End If
             End Set
         End Property
-        Protected _NeedleInnerWeight As Byte = NeedleWeight / 3
+        Protected _NeedleInnerWeight As Byte = NeedleOuterWeight / 3
+        ''' <summary>
+        ''' Gets or sets the pixel weight (thickness) of the inner needle (clock hand) area
+        ''' </summary>
+        ''' <returns></returns>
         Public Property NeedleInnerWeight As Byte
             Get
                 Return _NeedleInnerWeight
@@ -871,6 +952,10 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Protected _ShowInnerCutForPerformance As Boolean = True
+        ''' <summary>
+        ''' Gets or sets a value indicating whether visual inner cut (slash) that represents performance will be drawn in the middle of the clock border
+        ''' </summary>
+        ''' <returns></returns>
         Public Property ShowInnerCutForPerformance As Boolean
             Get
                 Return _ShowInnerCutForPerformance
@@ -884,6 +969,10 @@ Namespace ExecutiveClocks
         End Property
 
         Protected _InnerCutPreformanceColor As Color = ClockBackGroundColor
+        ''' <summary>
+        ''' Gets or sets the color of the visual inner cut (slash) that represents performance in the middle of the clock border
+        ''' </summary>
+        ''' <returns></returns>
         Public Property InnerCutPreformanceColor As Color
             Get
                 Return _InnerCutPreformanceColor
@@ -893,6 +982,10 @@ Namespace ExecutiveClocks
             End Set
         End Property
         Protected _InnerCutPerformanceWeight As Byte = 2
+        ''' <summary>
+        ''' Gets or sets the weight (thickness) of the inner cut (slash) that represents performance in the middle of the clock border
+        ''' </summary>
+        ''' <returns></returns>
         Public Property InnerCutPerformanceWeight As Byte
             Get
                 Return _InnerCutPerformanceWeight
@@ -915,18 +1008,15 @@ Namespace ExecutiveClocks
             End Set
         End Property
 
-        Protected BaseBar As Boolean = False
-        ' inner properties - dependent on clocks outer properties
-        Public BarBackColor As Color = ClockBackGroundColor
-        Private BarValueDigitsForeColor As Color = NeedleInnerColor
-        Private BarValueDigitsBackColor = ClockBackGroundColor
 
-        Protected BarForeColor As Color = Color.White
-        Public BarFont As Font = New Font("Bernard MT", 16, FontStyle.Bold)
-        Protected BarHeight As Int16 = 30
+
+        ''' <summary>
+        ''' use to contain the Clock object if text bar is required. Important: 
+        ''' When BaseBar = True the Clock object wil be hosted inside clock panel in order to present a bar of performance text underneath the clock Important:
+        ''' 1. If BaseBar = True use this control (and not Clock property) to get the clock with the text bar.
+        ''' 2. If BaseBar = False never use this property, the result will be NullReferenceException because it will not be initilized (Please read that issue: https://github.com/Jonathan435/Business-Clocks-Charts/issues/6).
+        ''' </summary>
         Public ClockPanel As Panel
-        Protected BarValueDigitsFont As Font = New Font("ARIAL", 8, FontStyle.Regular)
-        Protected lblPerformance As Label
         Protected StopAnimating As Boolean = False
 
         Public Overrides Sub Create(AnimateClock As Boolean)
@@ -952,7 +1042,7 @@ Namespace ExecutiveClocks
             Gclock.SmoothingMode = Drawing2D.SmoothingMode.HighQuality
             Gclock.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixelGridFit
             ' create a rectangle for circle
-            Dim needlePen As New Pen(NeedleOuterColor, NeedleWeight) ' for test
+            Dim needlePen As New Pen(NeedleOuterColor, NeedleOuterWeight) ' for test
             RectHandClock = New Rectangle(0, 0, RectNeedle_Width, RectNeedle_Width)
             ' draw the clock hand
             Gclock.DrawPolygon(needlePen, New Point() {NeedleFirstPoint, getHandClockSecondPoint()})
@@ -960,7 +1050,7 @@ Namespace ExecutiveClocks
             Dim innerNeedlePen As New Pen(NeedleInnerColor, NeedleInnerWeight)
             Gclock.DrawPolygon(innerNeedlePen, New Point() {New Point(NeedleFirstPoint.X, NeedleFirstPoint.Y), New Point(NeedleFirstPoint.X, NeedleFirstPoint.Y), getHandClockSecondPoint()})
             ' draw the base of the needle
-            Dim needleBasePen As New Pen(NeedleBaseOuterColor, NeedleBaseWeight)
+            Dim needleBasePen As New Pen(NeedleBaseColor, NeedleBaseWeight)
             ' rectangle and arc for base
             Dim baseRect As New Rectangle(NeedleFirstPoint.X - 3, NeedleFirstPoint.Y - 3, 6, 6)
             Gclock.DrawArc(needleBasePen, baseRect, 0.0F, 360.0F)
@@ -1170,14 +1260,136 @@ Namespace ExecutiveClocks
         End Sub
 
 #Region "BASE BAR"
+        Protected BaseBar As Boolean = False
+        Protected lblPerformance As Label
+        ' inner properties - dependent on clocks outer properties
+        Private _BarBackColor As Color = ClockBackGroundColor
+        ''' <summary>
+        ''' Gets or sets the performance bar background color
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property BarBackColor As Color
+            Get
+                Return _BarBackColor
+            End Get
+            Set(value As Color)
+                _BarBackColor = value
+                _BarValueDigitsBackColor = value
+                If ClockPanel IsNot Nothing AndAlso lblPerformance IsNot Nothing AndAlso lblMarkMax IsNot Nothing AndAlso lblMarkMin IsNot Nothing Then
+                    lblPerformance.BackColor = _BarBackColor
+                    lblMarkMin.BackColor = _BarBackColor
+                    lblMarkMax.BackColor = _BarBackColor
+                End If
+            End Set
+        End Property
 
 
+        Private lblMarkMin, lblMarkMax As New Label
+        Private _BarValueDigitsForeColor As Color = NeedleInnerColor
+        ''' <summary>
+        ''' Gets or sets the font color of the bar's max(100%) and min(0%) lables
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property BarValueDigitsForeColor As Color
+            Get
+                Return _BarValueDigitsForeColor
+            End Get
+            Set(value As Color)
+                _BarValueDigitsForeColor = value
+                If ClockPanel IsNot Nothing AndAlso lblPerformance IsNot Nothing AndAlso lblMarkMax IsNot Nothing AndAlso lblMarkMin IsNot Nothing Then
+                    lblMarkMax.ForeColor = _BarValueDigitsForeColor
+                    lblMarkMin.ForeColor = _BarValueDigitsForeColor
+                End If
+            End Set
+        End Property
 
-        Private Sub LoadBarValues()
-            ' TODO: add clocks original properties values to dependent bar properties  (user may changed properties after the initilazation)
-            BarBackColor = ClockBackGroundColor
-            BarValueDigitsBackColor = ClockBackGroundColor
-            BarValueDigitsForeColor = NeedleInnerColor
+        Private _BarValueDigitsBackColor = ClockBackGroundColor
+        ''' <summary>
+        ''' Gets or sets the background color of the bar's max(100%) and min(0%) lables
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property BarValueDigitsBackColor As Color
+            Get
+                Return _BarValueDigitsBackColor
+            End Get
+            Set(value As Color)
+                _BarValueDigitsBackColor = value
+                If ClockPanel IsNot Nothing AndAlso lblPerformance IsNot Nothing AndAlso lblMarkMax IsNot Nothing AndAlso lblMarkMin IsNot Nothing Then
+                    lblMarkMax.BackColor = _BarValueDigitsBackColor
+                    lblMarkMin.BackColor = _BarValueDigitsBackColor
+                End If
+            End Set
+        End Property
+
+        Protected _BarFont As Font = New Font("Bernard MT", 16, FontStyle.Bold)
+        ''' <summary>
+        ''' Gets or sets the font of the text that describes the PercentOfGoals percentage
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property BarFont As Font
+            Get
+                Return _BarFont
+            End Get
+            Set(value As Font)
+                _BarFont = value
+                If ClockPanel IsNot Nothing Then
+                    Me.lblPerformance.Font = _BarFont
+                End If
+            End Set
+        End Property
+
+        Private _BarHeight As Int16 = 30
+        Protected Property BarHeight As Int16
+            Get
+                Return _BarHeight
+            End Get
+            Set(value As Int16)
+                _BarHeight = value
+                If ClockPanel IsNot Nothing AndAlso lblPerformance IsNot Nothing AndAlso lblMarkMax IsNot Nothing AndAlso lblMarkMin IsNot Nothing Then
+                    lblMarkMax.Height = _BarHeight
+                    lblMarkMin.Height = _BarHeight
+                    lblPerformance.Height = _BarHeight
+                End If
+            End Set
+        End Property
+
+        Protected _BarForeColor As Color = Color.White
+        ''' <summary>
+        ''' Gets or sets the performance bar font color
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property BarForeColor As Color
+            Get
+                Return _BarForeColor
+            End Get
+            Set(value As Color)
+                _BarForeColor = value
+                If ClockPanel IsNot Nothing AndAlso lblPerformance IsNot Nothing AndAlso lblMarkMax IsNot Nothing AndAlso lblMarkMin IsNot Nothing Then
+                    Me.lblPerformance.ForeColor = _BarForeColor
+                End If
+            End Set
+        End Property
+
+        Protected _BarValueDigitsFont As Font = New Font("ARIAL", 8, FontStyle.Regular)
+        ''' <summary>
+        '''  Gets or sets the font of the bar's max(100%) and min(0%) lables
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property BarValueDigitsFont As Font
+            Get
+                Return _BarValueDigitsFont
+            End Get
+            Set(value As Font)
+                _BarValueDigitsFont = value
+                If ClockPanel IsNot Nothing AndAlso lblPerformance IsNot Nothing AndAlso lblMarkMax IsNot Nothing AndAlso lblMarkMin IsNot Nothing Then
+                    lblMarkMax.Font = _BarValueDigitsFont
+                    lblMarkMin.Font = _BarValueDigitsFont
+                End If
+            End Set
+        End Property
+
+
+        Sub LoadBarValues()
 
             ' panel defenitions
             ClockPanel.Size = New Size(ClockWidth, ClockHeight + BarHeight)
@@ -1185,7 +1397,7 @@ Namespace ExecutiveClocks
 
             ' ADD CONTROLS
             ' digit mark lables
-            Dim lblMarkMin, lblMarkMax As New Label
+
             MarkLablesSharedProperties(lblMarkMin, "  0%")
             MarkLablesSharedProperties(lblMarkMax, "100%")
 

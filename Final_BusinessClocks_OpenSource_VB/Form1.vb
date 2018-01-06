@@ -10,7 +10,6 @@ Public Class Form1
         ' car clock (with precentage bar)
         carClock = New BusinessClocks.ExecutiveClocks.CarClock(300, 150, 0.8, True)
         carClock.ShowInnerCutForPerformance = False
-        carClock.BarBackColor = Color.Pink
         carClock.Create(True)
         Me.Controls.Add(carClock.ClockPanel)
         ' goals clock
@@ -29,6 +28,8 @@ Public Class Form1
         waitClock.Create(True)
         Me.Controls.Add(waitClock.Clock)
 
+        ' version number
+        Me.Text = "Version " & BusinessClocks.ExecutiveClocks.GoalsClock.Version.ToString()
     End Sub
 
 
@@ -56,5 +57,35 @@ Public Class Form1
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         goalsClock.PercentOfGoals = 0.2
         goalsClock.RefreshClock(True)
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        carClock.BarForeColor = Color.Red
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        carClock.BarFont = New Font("ARIAL", 10, FontStyle.Italic)
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        carClock.BarBackColor = Color.Orange
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        carClock.BarValueDigitsForeColor = Color.Red
+        carClock.BarValueDigitsBackColor = Color.FromArgb(60, 60, 60)
+    End Sub
+
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        carClock.BarValueDigitsFont = New Font("DAVID", 10, FontStyle.Strikeout)
+    End Sub
+
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        waitClock.WaitText = "other text"
+    End Sub
+
+    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
+        Dim ar() As Color = {Color.Red, Color.Green, Color.Gray, Color.Orange}
+        waitClock.SetArrayColors(ar)
     End Sub
 End Class
