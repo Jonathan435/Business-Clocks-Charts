@@ -216,6 +216,8 @@ UNDER CONSTRACTION...
 
 
 ### Advanced Exmples
-UNDER CONSTRUCTION...
+UNDER CONSTRUCTION...<br/>
+
+
 **Showing the user a ```WaitClock``` object while application is executing long task in the background using threads 
 UNDER CONSTRUCTION...
