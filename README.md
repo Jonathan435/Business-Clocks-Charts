@@ -193,7 +193,7 @@ When ```BaseBar = True``` the ```Clock``` object wil be hosted inside ```ClockPa
 
 **Properties:** <br/>
 
-```waitText```: Gets or sets the text at the middle of the clock. <br/>
+*```waitText```: Gets or sets the text at the middle of the clock. <br/>
 
 **Methods:**<br/>
 
@@ -202,10 +202,10 @@ When ```BaseBar = True``` the ```Clock``` object wil be hosted inside ```ClockPa
 
 
 ### Builet With
-The DLL is written in VB.NET. <br/>
+The .dll is written in VB.NET. <br/>
 You can also use it with C# projects. <br/>
 Two identical examples are added, for C# and for VB.NET. <br/>
-
+This is an open source project: [Source Code](https://github.com/Jonathan435/Business-Clocks-Charts/tree/2.1)  
 ## Versioning:
 We use [SemVer](http://semver.org/) for versioning.<br/>
 GoalsClock base class has a ```Version``` constant field: use it to check the version number of the libary.
