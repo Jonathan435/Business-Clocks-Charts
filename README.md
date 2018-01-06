@@ -1,5 +1,5 @@
 # Speedometer Designed Charts
-Welcome to Graphic Winforms Clock Charts libary.<br/> The main purpose of this project is to provide graphical clock-like objects for winforms developers that are developing applications that present calculated data regarding to performance (company dashboard for example).<br/>
+Welcome to open source code Graphic Winforms Clock Charts libary.<br/> The main purpose of this project is to provide graphical "clock-like" objects for C# and VB.NET Winforms developers. the libary is primarily designed for applications that present calculated data regarding to performance (company sales dashboard for example).<br/>
 Each clock object has a variety of properties, used for customization, clocks can include animation when refreshing or loading.
 
 <img src="http://i.imgur.com/EdsyThw.png"/>
