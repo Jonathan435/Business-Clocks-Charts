@@ -191,9 +191,11 @@ When ```BaseBar = True``` the ```Clock``` object wil be hosted inside ```ClockPa
 <img src="https://i.imgur.com/4Mdudcj.jpg"/>
 <br/>
 
-**Properties:**
+**Properties:** <br/>
+
 ```waitText```: Gets or sets the text at the middle of the clock.
-**Methods:**
+**Methods:**<br/>
+
 * ```SetArrayColors(ByVal arrayOfColors() As Color)```: Sets a series of colors that will change after each 360 deg rotation.
 
 
