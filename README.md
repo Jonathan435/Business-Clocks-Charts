@@ -150,9 +150,13 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherit GoalsClock_
 * ```RefreshClock(ByVal AnimateClock As Boolean)```: Refreshes and redraws the graphics of the clock object, call this method after you change properties (PercentOfGoals, InnerCircleColor for example). Most of the clock properties will call this method when their value is changed. (developers please note: this method is Overridable / Virtual).
 * ``` LoadFont()```: Returns the suitable font em size and style relative to the clock size using internal elgoritem.<br/> you can always call ```LoadFont()``` in order to reset the font.<br/> If the clock is to small the text will not be shown inside the clock .
 * ```Dispose()```: The method is implements from IDisposable Interface (in mscorlib.dll assembly), when called clock object will be disposed and all [GDI Objects](https://msdn.microsoft.com/en-us/library/ms969928.aspx) will be freed from memory.
-### CarClock Class Methods and Properties
+### CarClock Class Methods and Properties 
 <img src="https://i.imgur.com/m7Uu6JX.jpg"/>
+description
+<br/>
+
 **Properties:**
+
 * ```ClockPanel```(field): use to contain inside the ```Clock``` object if text bar is required. **Important:** 
 When ```BaseBar = True``` the ```Clock``` object wil be hosted inside ```ClockPanel``` in order to present a bar of performance text underneath the clock.<br/> **Consider that:**
 1. _If ```BaseBar = True``` use this control (and not Clock property) to get the clock with the text bar._
