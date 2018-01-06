@@ -122,6 +122,7 @@ End Class
 ### Base Class (GoalsClock) Methods and Properties
 <img src="https://i.imgur.com/8Jt9v8w.jpg"/>
 <br/>
+
 _**Note:** All clocks (WaitClock and CarClock for now) inherit GoalsClock_
 <br/><br/>
 **Properties:**
