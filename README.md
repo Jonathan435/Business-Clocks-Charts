@@ -217,13 +217,13 @@ UNDER CONSTRACTION...
 <br/>
 _______________________________________________________________________________________________________
 
-### Advanced Exmples
+## Advanced Exmples
 UNDER CONSTRUCTION...<br/>
 
 
-**Showing the user a ```WaitClock``` object while application is executing long task in the background using threads** <br/>
+### Showing the user a ```WaitClock``` object while application is executing long task in the background using threads** <br/>
 
-**C# Code:
+**C# Code Example With Comments:**
 ```
 /*
  **************************************************************************
