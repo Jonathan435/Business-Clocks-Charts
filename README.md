@@ -223,4 +223,84 @@ UNDER CONSTRUCTION...<br/>
 
 **Showing the user a ```WaitClock``` object while application is executing long task in the background using threads** <br/>
 
-UNDER CONSTRUCTION...
+**C# Code:
+```
+/*
+ **************************************************************************
+ * AUTHOR: Jonathan Applebaum                                             *
+ * DESCRIPTION: An example that describes how to use WaitClock object     *
+ * from another thread in order to execute a long task in the beckground  *
+ * DATE: 06/01/2017                                                       *
+ * ************************************************************************
+*/
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using BusinessClocks.ExecutiveClocks;
+
+namespace WindowsFormsApplication19
+{
+    public partial class Form1 : Form
+    {
+
+        private WaitClock waitClock;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // show wait clock on a different thread until LongTask finish executing
+            System.Threading.Thread waitThread = new System.Threading.Thread(LoadWaitClock);
+            waitThread.Start();
+            // start a new thread to execute LongTask() parallel to the waitThread 
+            System.Threading.Thread longTaskThread = new System.Threading.Thread(LongTask);
+            longTaskThread.Start();
+
+        }
+
+        // put the code of your task that you want to execute in the background in that method
+        private void LongTask()
+        {
+            // loop to represent a long task
+            for (int i = 0; i < 10; i++)
+            {
+                System.Threading.Thread.Sleep(1000);
+            }
+
+            // the "long task" inside the method finished to execute - dispose the wait clock from the GUI
+            panel1.Invoke(new Action(waitClock.Dispose));
+        }
+
+        private void LoadWaitClock()
+        {
+            // use action delegate to update GUI changes from another thread
+            panel1.Invoke(new Action(AddClock));         
+        }
+
+        private void AddClock()
+        {
+            // configure and initilize the clock
+            waitClock = new WaitClock(120, 120, "Loading...");
+            waitClock.ClockBackGroundColor = Color.White;
+            waitClock.FontColor = Color.Black;
+            waitClock.Clock.Location = new Point(5, 5);
+            waitClock.LoadFont("ARIAL", 8, FontStyle.Regular);
+            waitClock.SetArrayColors(new Color[] { Color.FromArgb(0, 100, 100), Color.FromArgb(0, 136, 136), Color.FromArgb(0, 170, 170), Color.FromArgb(0, 204, 204) });
+            waitClock.OuterCircleWeight = 8;
+            waitClock.InnerCircleWeight = 5;
+            waitClock.Create(true);
+            this.panel1.Controls.Add(waitClock.Clock);
+        }
+    }
+}
+```
