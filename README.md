@@ -312,3 +312,54 @@ namespace WindowsFormsApplication19
 }
 
 ```
+**Visual Basic.NET Code Example With Comments:**
+```
+' **************************************************************************
+' * AUTHOR: Jonathan Applebaum                                             *
+' * DESCRIPTION: An example that describes how To use WaitClock Object     *
+' * from another thread in order to execute a long task in the beckground  *
+' * DATE: 06/01/2017                                                       *
+' * ************************************************************************
+Imports BusinessClocks.ExecutiveClocks
+Public Class Form1
+
+    Private waitClock As WaitClock
+    Private Sub Form1_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim waitThread As System.Threading.Thread = New System.Threading.Thread(AddressOf LoadWaitClock)
+        waitThread.Start()
+        Dim longTaskThread As System.Threading.Thread = New System.Threading.Thread(AddressOf LongTask)
+        longTaskThread.Start()
+    End Sub
+
+    Private Sub LongTask()
+        For i As Integer = 0 To 9
+            System.Threading.Thread.Sleep(1000)
+        Next
+
+        Panel1.Invoke(New Action(AddressOf waitClock.Dispose))
+        Label1.Invoke(New Action(AddressOf NotifyTaskHasFinished))
+    End Sub
+
+    Private Sub LoadWaitClock()
+        Panel1.Invoke(New Action(AddressOf AddClock))
+    End Sub
+
+    Private Sub AddClock()
+        waitClock = New WaitClock(120, 120, "Loading...")
+        waitClock.ClockBackGroundColor = Color.White
+        waitClock.FontColor = Color.Black
+        waitClock.Clock.Location = New Point(5, 5)
+        waitClock.LoadFont("ARIAL", 8, FontStyle.Regular)
+        waitClock.SetArrayColors(New Color() {Color.FromArgb(0, 100, 100), Color.FromArgb(0, 136, 136), Color.FromArgb(0, 170, 170), Color.FromArgb(0, 204, 204)})
+        waitClock.OuterCircleWeight = 8
+        waitClock.InnerCircleWeight = 5
+        waitClock.Create(True)
+        Me.Panel1.Controls.Add(waitClock.Clock)
+    End Sub
+
+    Private Sub NotifyTaskHasFinished()
+        Label1.Text = "LongTask() method has finished"
+    End Sub
+
+End Class
+```
