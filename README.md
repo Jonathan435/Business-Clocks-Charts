@@ -145,7 +145,7 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherit GoalsClock_
 * ```GoalsPercentDecimalValue```: Gets the the clock deciaml value.
 * ```Animate```(field): Gets or set a value indicating whether animation will be activated or not.
 * ```AnimationLength```: Gets or set animation speed (milisec) based on AnimationLength Enumeration: SuperFast = 1, Fast = 4, ModerateFast = 8, Moderate = 15, ModerateSlow = 28, Slow = 50, SuperSlow = 80.
-* ```TimerInterval```: Gets or set the ticks interval for the internal timer that is handaling the animation. recomended value is 4 (default).
+* ```TimerInterval```: Gets or set the ticks interval for the internal timer that is handaling the animation. recomended value is 4 (default) to expedite refrsh time use lower value.
 
 **Methods:**
 
