@@ -1,6 +1,6 @@
 # Speedometer Designed Charts
-Welcome to graphic winforms clock charts, an open source code libary.<br/> The main purpose of this project is to provide graphical "clock-like" objects for C# and VB.NET Winforms developers. the libary is primarily designed for applications that present calculated data regarding to performance (company sales dashboard for example).<br/>
-each clock object has a variety of properties, used for customization, clocks can include animation when refreshing or loading.
+Welcome to graphic winforms clock charts, an open source code libary.<br/> The main purpose of this project is to provide graphic "clock-like" objects for C# and VB.NET Winforms developers. the libary is primarily design for applications that present calculated data regarding to performance (company sales dashboard for example).<br/>
+each clock object has a variety of properties, used for customization, clocks can include animation when refreshed or load.
 
 <img src="http://i.imgur.com/EdsyThw.png"/>
 <br/>
@@ -126,7 +126,7 @@ End Class
 _**Note:** All clocks (WaitClock and CarClock for now) inherit GoalsClock_
 <br/><br/>
 **Properties:**
-* ```Clock:``` Instance of the graphical object that represents the clock, initilized after ```Create()``` had been called.
+* ```Clock:``` Instance of the graphic object that represents the clock, initilized after ```Create()``` had been called.
 * ```ClockWidth```: Gets or Sets the clock width.
 * ```ClockHeight```: Gets or Sets the clock height.
 * ```xPos``` and ```Ypos```: Gets the x or y position of the rectangle that contains the clock.
@@ -134,7 +134,7 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherit GoalsClock_
 * ```FontColor```: Gets or sets the font color of the text  that describes the ```PercentOfGoals``` percentage.
 * ```ClockFont```: Gets or sets the font of the text that describes the PercentOfGoals percentage. **Please note:**
 1.  _It is recomended not to change ```font``` property because the getter of this property is calling ```LoadFont()``` function in order to calculate the suitable font size and style relative to the clock size using internal elgoritem._
-2. _If the clock is too small the text will not be shown inside the clock (when not changing ```ClockFont``` from outside and letting ```LoadFont()``` to determine the suitable font)._
+2. _If the clock is too small the text will not appear on screen (not changing the font settings will prevent this issue)._
 3. _you can always call ```LoadFont()``` in order to reset the font._ 
 
 * ```InnerCircleColor```: Gets or sets the color of the inner arc.
@@ -143,9 +143,9 @@ _**Note:** All clocks (WaitClock and CarClock for now) inherit GoalsClock_
 * ```OuterCircleWeight```: Gets or sets the pixel weight (wideness) of the outer arc.
 * ```PercentOfGoals```: Gets or sets the the clock value. for example value of 0.1F = 10%, value of 0.5F = 50%,value of 1.1F = 110% etc...
 * ```GoalsPercentDecimalValue```: Gets the the clock deciaml value.
-* ```Animate```(field): Gets or set a value indicating whether animation will be activated or not.
-* ```AnimationLength```: Gets or set animation speed (milisec) based on AnimationLength Enumeration: SuperFast = 1, Fast = 4, ModerateFast = 8, Moderate = 15, ModerateSlow = 28, Slow = 50, SuperSlow = 80.
-* ```TimerInterval```: Gets or set the ticks interval for the internal timer that is handaling the animation. recomended value is 4 (default) to expedite refrsh time use lower value.
+* ```Animate```(field): Gets or sets a value indicating whether animation will be activated or not.
+* ```AnimationLength```: Gets or sets animation speed (milisec) based on AnimationLength Enumeration: SuperFast = 1, Fast = 4, ModerateFast = 8, Moderate = 15, ModerateSlow = 28, Slow = 50, SuperSlow = 80.
+* ```TimerInterval```: Gets or set the ticks interval for the internal timer. recomended value is 4 (default) to expedite refresh time use lower value.
 
 **Methods:**
 
